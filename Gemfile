@@ -41,6 +41,8 @@ group :development, :test do
   gem 'byebug'
   gem 'dotenv-rails'
   gem 'better_errors'
+  gem 'minitest-vcr'
+  gem 'webmock'
 end
 
 group :development do
@@ -56,3 +58,4 @@ group :test do
   gem 'simplecov'
 
 end
+gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
