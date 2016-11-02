@@ -1,6 +1,15 @@
 class PagesController < ApplicationController
 
+  def search
+    @recipe = params[:label]
+  end
+
   def index
-    @ingredient = params[:recipe]
+    @recipe = params[:label]
+    @recipes = Recipe.search(@recipe)
+  end
+
+  def show
+    @recipe = params[:label]
   end
 end

@@ -2,7 +2,7 @@
 class Recipe
   attr_reader :label, :url
 
-  def initialize(label, url)
+  def initialize(label)
     @label = label
     @url = url
     # Commented out because there's no way I'd be able to remember
@@ -26,8 +26,8 @@ class Recipe
   end
 
   # Return a memoized set of all recipes
-  def self.all
-    EdamamApiWrapper.listrecipes
+  def self.search(search_term)
+    EdamamApiWrapper.listrecipes(search_term)
   end
 
   # Foreget all memoized values
