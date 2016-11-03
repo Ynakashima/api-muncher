@@ -1,10 +1,19 @@
 # lib/recipe.rb
 class Recipe
-  attr_reader :label, :url
+  attr_reader :label, :uri, :image, :yield, :level, :summary, :calories, :ingredients, :dietLabels, :healthLabels, :url
 
-  def initialize(label)
+  def initialize(label, uri, options = {})
     @label = label
-    @url = url
+    @uri = uri
+    @image = options[:image]
+    @yield = options[:yield]
+    @level = options[:level]
+    @summary = options[:summary]
+    @calories = options[:calories]
+    @ingredients = options[:ingredients]
+    @dietLabels = options[:dietLabels]
+    @healthLabels = options[:healthLabels]
+    @url = options[:url]
     # Commented out because there's no way I'd be able to remember
     # all this live.
     # @purpose = options[:purpose]
@@ -46,5 +55,7 @@ class Recipe
   # Return either the first (probably only) recipe matching
   # the given ID, or nil.
   def self.by_id(id)
+    by_id = EdamamApiWrapper.listrecipes(id)
+    return by_id.first
   end
 end

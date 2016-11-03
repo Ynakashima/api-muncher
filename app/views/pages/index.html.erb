@@ -1,6 +1,6 @@
 <h1>Recipes</h1>
 
-<h2>Click on a link to see recipe details.</h2>
+<h3>Click on a link to see recipe details.</h3>
 <section class="row">
 <% sections = ['<section class="small-12 medium-6 large-4  columns">',
                 '<section class="small-12 medium-6 large-4  columns">',
@@ -14,7 +14,8 @@
     <ul>
   <% end %>
   <% counter += 1 %>
-  <li>   <%= link_to recipe.label, pages_path(recipe.label) %> </li>
+  <li>   <%= link_to recipe.label, page_path(recipe.uri) %> </li>
+
 
   <% if counter % max == 0 %>
     </ul>

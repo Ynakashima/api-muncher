@@ -10,6 +10,7 @@ class PagesController < ApplicationController
   end
 
   def show
-    @recipe = params[:label]
+    @recipe = params[:id]
+    @this_recipe = Recipe.by_id(@recipe.id)
   end
 end
