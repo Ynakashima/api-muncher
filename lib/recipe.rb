@@ -1,19 +1,21 @@
 # lib/recipe.rb
 class Recipe
-  attr_reader :label, :uri, :image, :yield, :level, :summary, :calories, :ingredients, :dietLabels, :healthLabels, :url
+  attr_reader :label, :uri, :image, :yield, :level, :summary, :calories, :ingredientLines, :dietLabels, :healthLabels, :url, :id
 
   def initialize(label, uri, options = {})
     @label = label
     @uri = uri
+    @id = @uri.split("_").last
     @image = options[:image]
     @yield = options[:yield]
     @level = options[:level]
     @summary = options[:summary]
     @calories = options[:calories]
-    @ingredients = options[:ingredients]
+    @ingredientLines = options[:ingredientLines]
     @dietLabels = options[:dietLabels]
     @healthLabels = options[:healthLabels]
     @url = options[:url]
+
     # Commented out because there's no way I'd be able to remember
     # all this live.
     # @purpose = options[:purpose]

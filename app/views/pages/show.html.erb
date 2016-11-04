@@ -1,5 +1,17 @@
-<!-- <%# @recipes.each do |r| %>
-<ul>
-  <li><%#= r.label %> </li>
-</ul>
-<%# end %> -->
+<h3> Recipe Details </h3>
+<% @this_recipe.each do |r| %>
+  <img src ="<%= r.image %>" alt="recipe image" />
+  <h3><%= r.label %> </h3>
+  <p>Makes <%=(r.yield).to_i %> servings </p>
+  <p>Ingredients:</p>
+  <ul>
+    <% r.ingredientLines.each do |ingredient| %>
+      <li><%= ingredient %></li>
+    <% end %>
+    <li> Calories: <%= (r.calories).to_i %></li>
+  </ul>
+    <% r.dietLabels.each do |dl| %>
+      <p><%= "*" + dl %></p>
+    <% end %>
+    <p><%= link_to "Find the Original Recipe Here", r.url, target: "_blank" %></p>
+<% end %>

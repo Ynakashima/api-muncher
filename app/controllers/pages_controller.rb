@@ -1,3 +1,5 @@
+require 'will_paginate/array'
+
 class PagesController < ApplicationController
 
   def search
@@ -11,6 +13,6 @@ class PagesController < ApplicationController
 
   def show
     @recipe = params[:id]
-    @this_recipe = Recipe.by_id(@recipe.id)
+    @this_recipe = Recipe.search(@recipe)
   end
 end

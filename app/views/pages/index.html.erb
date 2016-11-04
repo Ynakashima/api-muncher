@@ -14,7 +14,8 @@
     <ul>
   <% end %>
   <% counter += 1 %>
-  <li>   <%= link_to recipe.label, page_path(recipe.uri) %> </li>
+  <li><%= link_to recipe.label, page_path(recipe.id) %>
+      <%= link_to image_tag(recipe.image), page_path(recipe.uri) %></li>
 
 
   <% if counter % max == 0 %>
