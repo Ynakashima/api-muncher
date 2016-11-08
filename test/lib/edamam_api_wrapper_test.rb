@@ -7,7 +7,7 @@ class EdamamApiWrapperTest < ActiveSupport::TestCase
 
   test "that listrecipes returns an array of Recipes" do
     VCR.use_cassette("recipes") do
-      recipes = EdamamApiWrapper.listrecipes("chicken")
+      recipes = EdamamApiWrapper.listrecipes("butter")
       assert_kind_of Array, recipes
       assert_not recipes.empty?
       recipes.each do |recipe|
@@ -15,4 +15,14 @@ class EdamamApiWrapperTest < ActiveSupport::TestCase
       end
     end
   end
+
+  test "that listrecipes returns an empty array if there are no hits" do
+    VCR.use_cassette("recipe") do
+      these_recipes = EdamamApiWrapper.listrecipes("xxxxyyyy")
+      assert_kind_of Array, these_recipes
+      assert_equal these_recipes.length, 0
+    end
+  end
+
+
 end

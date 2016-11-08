@@ -8,7 +8,7 @@ class PagesController < ApplicationController
 
   def index
     @recipe = params[:label]
-    @recipes = Recipe.search(@recipe)
+    @recipes = Recipe.search(@recipe).paginate(:page => params[:page], :per_page => 10)
   end
 
   def show

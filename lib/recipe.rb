@@ -24,11 +24,6 @@ class Recipe
     # @members = options[:members]
   end
 
-  # Send a message to this slack recipe
-  # Returns the data from the Slack server's response
-  def sendmsg(msg)
-  end
-
   # Create a class-level instance variable.
   # Musch more likely to work as expected than a class variable
   # See http://www.railstips.org/blog/archives/2006/11/18/class-and-instance-variables-in-ruby/
